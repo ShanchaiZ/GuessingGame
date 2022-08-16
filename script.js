@@ -12,3 +12,17 @@ while (!maximum) {
 //3. Generate Random Number using the prompted number:
 let targetNum = Math.floor((Math.random() * maximum) + 1);
 console.log(targetNum);
+
+
+//Create Game Logic:
+let guess = parseInt(prompt("Enter your first guess!"));
+
+while (guess !== targetNum) {
+    if (guess > targetNum){
+        guess = parseInt(prompt("Guess Too High! Enter a new guess"));
+    } else {
+        guess = parseInt(prompt("Guess Too Low! Enter a new guess"));
+    }
+}
+
+console.log("you win!")
