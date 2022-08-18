@@ -19,15 +19,30 @@ let attempts = 1;
 //4. Create Game Logic:
 let guess = parseInt(prompt("Enter your first guess!"));
 
-while (guess !== targetNum) {
+while (parseInt(guess) !== targetNum) {
+    if (guess === "quit") break;
+
+    //5. number of attempts 
     attempts += 1;
+
     if (guess > targetNum) {
-        guess = parseInt(prompt("Guess Too High! Enter a new guess"));
+        guess = prompt("Guess Too High! Enter a new guess");
     } else {
-        guess = parseInt(prompt("Guess Too Low! Enter a new guess"));
+        guess = prompt("Guess Too Low! Enter a new guess");
     }
+
 }
 
-console.log(`You win! It took you ${attempts} guesses!`);
+//6. End game: Quit or Victory!
+//===============================================================================================
+if (guess === "quit") {
+    console.log("User Quit the Game!");
+} else {
+    console.log(`Congratulations You Win! It took you ${attempts} guesses!`);
+}
+
 
 //5. Optional: add number of guessing Attempts using attempts and increment the number of attempts after every failed guess.
+//6. How to quit the game early!
+//check to see if the parsed to integer guess is NOT the target number. If it matchs "quit" = then quit the game. if it is the incorrect guessed number then apply game logic while tabulating number of attempts.
+//2 ways game ends => user quits or user guess correct number!
